@@ -44,7 +44,7 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: VideoModalProps) => {
             {/* Video Player */}
             <div className="relative w-full aspect-video bg-black">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fit"
                 controls
                 autoPlay
                 muted
