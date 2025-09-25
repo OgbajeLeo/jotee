@@ -1,7 +1,13 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Play, Star, Shield, Zap } from "lucide-react";
+import { useState } from "react";
+import VideoModal from "../../../components/VideoModal";
 
 const HeroSection = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const videoUrl =
+    "https://res.cloudinary.com/duw4jtxls/video/upload/v1758761740/Laptops_are_available_at_an_affordable_price_1_s4lzpt.mp4";
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -135,6 +141,7 @@ const HeroSection = () => {
               className="group flex items-center px-8 py-4 bg-white text-gray-900 rounded-2xl font-semibold text-lg border-2 border-gray-200 hover:border-primary transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsVideoModalOpen(true)}
             >
               <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               Watch Demo
@@ -216,6 +223,13 @@ const HeroSection = () => {
           />
         </motion.div>
       </motion.div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl={videoUrl}
+      />
     </section>
   );
 };
