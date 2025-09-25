@@ -52,7 +52,7 @@ Please confirm this order and provide your delivery details. Thank you!`;
 
   const handleWhatsAppCheckout = () => {
     const message = generateWhatsAppMessage();
-    const phoneNumber = "+2349036787860";
+    const phoneNumber = "+2348147765922";
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
