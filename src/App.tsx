@@ -1,13 +1,13 @@
-import './index.css'
-import AppRoutes from './routes/AppRoutes'
+import "./index.css";
+import AppRoutes from "./routes/AppRoutes";
+import { CartProvider } from "./contexts/CartContext";
 
 function App() {
-
   return (
-    <>
-     <AppRoutes />
-    </>
-  )
+    <CartProvider>
+      <AppRoutes />
+    </CartProvider>
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion,type Variants } from "framer-motion";
 import {
   Monitor,
   Laptop,
@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const FeaturesSection = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -26,7 +26,7 @@ const FeaturesSection = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -170,7 +170,7 @@ const FeaturesSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <motion.div
               key={feature.title}
               className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden"
@@ -250,7 +250,7 @@ const FeaturesSection = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {serviceFeatures.map((service, index) => (
+            {serviceFeatures.map((service) => (
               <motion.div
                 key={service.title}
                 className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"

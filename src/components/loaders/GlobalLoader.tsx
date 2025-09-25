@@ -1,8 +1,9 @@
-
 const GlobalLoader = () => {
   return (
-    <div>GlobalLoader</div>
-  )
-}
+    <div className="loader-container">
+      <div className="spinner"></div>
+    </div>
+  );
+};
 
-export default GlobalLoader
+export default GlobalLoader;

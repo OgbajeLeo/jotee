@@ -1,11 +1,11 @@
-import { Footer, Navbar } from "../../components";
-import HeroSection from "../../components/sections/HeroSection";
-import FeaturesSection from "../../components/sections/FeaturesSection";
-import ProductsShowcase from "../../components/sections/ProductsShowcase";
-import BrandsSection from "../../components/sections/BrandsSection";
-import StatsSection from "../../components/sections/StatsSection";
-import TestimonialsSection from "../../components/sections/TestimonialsSection";
-import CTASection from "../../components/sections/CTASection";
+import { Footer, Navbar, Cart } from "../../components";
+import HeroSection from "./sections/HeroSection";
+import FeaturesSection from "./sections/FeaturesSection";
+import ProductsShowcase from "./sections/ProductsShowcase";
+import BrandsSection from "./sections/BrandsSection";
+import StatsSection from "./sections/StatsSection";
+import TestimonialsSection from "./sections/TestimonialsSection";
+import CTASection from "./sections/CTASection";
 
 const LandingPage = () => {
   return (
@@ -19,6 +19,7 @@ const LandingPage = () => {
       <TestimonialsSection />
       <CTASection />
       <Footer />
+      <Cart />
     </div>
   );
 };

@@ -1,5 +1,6 @@
-import  { useState } from "react";
-import { motion, AnimatePresence,type Variants } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { CartButton } from "./index";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
   ];
 
   // Animation variants
-  const containerVariants:Variants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -58,7 +59,7 @@ const Navbar = () => {
     open: { rotate: 180 },
   };
 
-  const lineVariants:Variants = {
+  const lineVariants: Variants = {
     closed: { rotate: 0, y: 0 },
     open: (index: number) => ({
       rotate: index === 0 ? 45 : index === 1 ? -45 : 0,
@@ -124,13 +125,14 @@ const Navbar = () => {
               </div>
             </motion.div>
 
-            {/* CTA Button */}
+            {/* CTA Button and Cart */}
             <motion.div
-              className="hidden md:block"
+              className="hidden md:flex items-center gap-4"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
+              <CartButton />
               <motion.button
                 className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
                 whileHover={{
@@ -143,13 +145,14 @@ const Navbar = () => {
               </motion.button>
             </motion.div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button and cart */}
             <motion.div
-              className="md:hidden"
+              className="md:hidden flex items-center gap-3"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
+              <CartButton />
               <motion.button
                 onClick={toggleMenu}
                 className="text-gray-700 hover:text-primary focus:outline-none focus:text-primary p-2"
@@ -212,7 +215,7 @@ const Navbar = () => {
             >
               {/* Navigation Links */}
               <div className="text-center space-y-8 mb-12">
-                {navLinks.map((link, index) => (
+                {navLinks.map((link) => (
                   <motion.a
                     key={link.name}
                     href={link.href}

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion,type Variants } from "framer-motion";
 import {
   ArrowRight,
   Phone,
@@ -26,7 +26,7 @@ const CTASection = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -250,7 +250,7 @@ const CTASection = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {contactMethods.map((method, index) => (
+          {contactMethods.map((method) => (
             <motion.div
               key={method.title}
               className="group relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:border-white/40 transition-all duration-500 overflow-hidden"
@@ -319,7 +319,7 @@ const CTASection = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {specialOffers.map((offer, index) => (
+            {specialOffers.map((offer) => (
               <motion.div
                 key={offer.title}
                 className="group bg-white/5 rounded-2xl p-6 border border-white/20 hover:border-secondary/50 transition-all duration-300"

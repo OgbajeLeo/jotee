@@ -1,9 +1,5 @@
-import { motion } from "framer-motion";
+import { motion,type Variants } from "framer-motion";
 import {
-  Monitor,
-  Laptop,
-  Smartphone,
-  Camera,
   Wifi,
   Shield,
   Star,
@@ -85,30 +81,8 @@ const BrandsSection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
-  const marqueeVariants = {
+  const marqueeVariants: Variants = {
     animate: {
       x: [0, -100 * brands.length],
       transition: {
@@ -246,69 +220,7 @@ const BrandsSection = () => {
           </motion.div>
         </div>
 
-        {/* Brand Categories */}
-        <motion.div
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {[
-            {
-              icon: Monitor,
-              title: "Desktop Computers",
-              description: "High-performance workstations and gaming rigs",
-              brands: ["HP", "Dell", "ASUS", "Acer"],
-            },
-            {
-              icon: Laptop,
-              title: "Laptops & Notebooks",
-              description: "Portable computing for work and play",
-              brands: ["HP", "Dell", "ASUS", "Lenovo"],
-            },
-            {
-              icon: Smartphone,
-              title: "Mobile Devices",
-              description: "Smartphones and tablets from top brands",
-              brands: ["Samsung", "Apple", "itel", "Hisense"],
-            },
-            {
-              icon: Camera,
-              title: "Security Systems",
-              description: "CCTV and surveillance solutions",
-              brands: ["Samsung", "Hisense", "ASUS"],
-            },
-          ].map((category, index) => (
-            <motion.div
-              key={category.title}
-              className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <category.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
-                {category.title}
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                {category.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {category.brands.map((brand) => (
-                  <span
-                    key={brand}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full font-medium"
-                  >
-                    {brand}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      
 
         {/* Trust Indicators */}
         <motion.div

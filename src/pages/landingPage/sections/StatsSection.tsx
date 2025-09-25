@@ -1,14 +1,10 @@
-import { motion, useInView } from "framer-motion";
+import { motion,type Variants, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import {
   Users,
-  Award,
   Truck,
-  Star,
   Shield,
   Clock,
-  TrendingUp,
-  CheckCircle,
 } from "lucide-react";
 
 const StatsSection = () => {
@@ -35,14 +31,14 @@ const StatsSection = () => {
       description: "Satisfied clients worldwide",
       color: "from-blue-500 to-blue-600",
     },
-    {
-      icon: Award,
-      value: 500,
-      suffix: "+",
-      label: "Products Sold",
-      description: "Quality products delivered",
-      color: "from-green-500 to-green-600",
-    },
+    // {
+    //   icon: Award,
+    //   value: 500,
+    //   suffix: "+",
+    //   label: "Products Sold",
+    //   description: "Quality products delivered",
+    //   color: "from-green-500 to-green-600",
+    // },
     {
       icon: Truck,
       value: 15000,
@@ -51,14 +47,14 @@ const StatsSection = () => {
       description: "Quick and reliable shipping",
       color: "from-purple-500 to-purple-600",
     },
-    {
-      icon: Star,
-      value: 4.9,
-      suffix: "/5",
-      label: "Customer Rating",
-      description: "Based on verified reviews",
-      color: "from-yellow-500 to-yellow-600",
-    },
+    // {
+    //   icon: Star,
+    //   value: 4.9,
+    //   suffix: "/5",
+    //   label: "Customer Rating",
+    //   description: "Based on verified reviews",
+    //   color: "from-yellow-500 to-yellow-600",
+    // },
     {
       icon: Shield,
       value: 100,
@@ -75,50 +71,50 @@ const StatsSection = () => {
       description: "Round-the-clock assistance",
       color: "from-cyan-500 to-cyan-600",
     },
-    {
-      icon: TrendingUp,
-      value: 150,
-      suffix: "%",
-      label: "Growth Rate",
-      description: "Year-over-year growth",
-      color: "from-orange-500 to-orange-600",
-    },
-    {
-      icon: CheckCircle,
-      value: 99,
-      suffix: "%",
-      label: "Satisfaction Rate",
-      description: "Customer satisfaction score",
-      color: "from-indigo-500 to-indigo-600",
-    },
+    // {
+    //   icon: TrendingUp,
+    //   value: 150,
+    //   suffix: "%",
+    //   label: "Growth Rate",
+    //   description: "Year-over-year growth",
+    //   color: "from-orange-500 to-orange-600",
+    // },
+    // {
+    //   icon: CheckCircle,
+    //   value: 99,
+    //   suffix: "%",
+    //   label: "Satisfaction Rate",
+    //   description: "Customer satisfaction score",
+    //   color: "from-indigo-500 to-indigo-600",
+    // },
   ];
 
-  const achievements = [
-    {
-      title: "Best Tech Retailer 2024",
-      description: "Awarded by Tech Industry Association",
-      icon: Award,
-      year: "2024",
-    },
-    {
-      title: "Customer Service Excellence",
-      description: "Recognized for outstanding support",
-      icon: Star,
-      year: "2023",
-    },
-    {
-      title: "Innovation in Technology",
-      description: "Leading edge product solutions",
-      icon: TrendingUp,
-      year: "2023",
-    },
-    {
-      title: "Quality Assurance Certified",
-      description: "ISO 9001:2015 certified processes",
-      icon: Shield,
-      year: "2022",
-    },
-  ];
+  // const achievements = [
+  //   {
+  //     title: "Best Tech Retailer 2024",
+  //     description: "Awarded by Tech Industry Association",
+  //     icon: Award,
+  //     year: "2024",
+  //   },
+  //   {
+  //     title: "Customer Service Excellence",
+  //     description: "Recognized for outstanding support",
+  //     icon: Star,
+  //     year: "2023",
+  //   },
+  //   {
+  //     title: "Innovation in Technology",
+  //     description: "Leading edge product solutions",
+  //     icon: TrendingUp,
+  //     year: "2023",
+  //   },
+  //   {
+  //     title: "Quality Assurance Certified",
+  //     description: "ISO 9001:2015 certified processes",
+  //     icon: Shield,
+  //     year: "2022",
+  //   },
+  // ];
 
   useEffect(() => {
     if (isInView) {
@@ -159,7 +155,7 @@ const StatsSection = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -281,55 +277,7 @@ const StatsSection = () => {
           ))}
         </motion.div>
 
-        {/* Achievements Section */}
-        <motion.div
-          className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Awards & <span className="text-primary">Recognition</span>
-            </h3>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Our commitment to excellence has been recognized by industry
-              leaders and satisfied customers worldwide.
-            </p>
-          </div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={achievement.title}
-                className="group text-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300"
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/30 transition-colors duration-300">
-                  <achievement.icon className="w-8 h-8 text-primary" />
-                </div>
-                <div className="text-primary text-sm font-semibold mb-2">
-                  {achievement.year}
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-primary transition-colors duration-300">
-                  {achievement.title}
-                </h4>
-                <p className="text-gray-300 text-sm">
-                  {achievement.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+        
       </div>
     </section>
   );
